@@ -1,0 +1,25 @@
+{
+  "unpublishedCollection": {
+    "name": "JSObject1",
+    "pageId": "Page1",
+    "pluginId": "js-plugin",
+    "pluginType": "JS",
+    "actions": [],
+    "archivedActions": [],
+    "body": "export default {\n\tmyVar1: [],\n\tmyVar2: {},\n\tmyFun1: async () => {\n\t\tProgress1.isVisible = true\n\t\tvar input = FilePicker1.files[0];\n\t\tvar n = input.data.length\n\t\tvar arr = []\n\t\tfor(var i=0;i<n;i++){\n\t\t\tarr.push(input.data[i][\"customer_ids\"])\n\t\t\tif(i%10000 == 9999){\n\t\t\t\tstoreValue(\"customer_ids_batch\", arr, false)\n\t\t\t\tApi1.run()\n\t\t\t\tarr = []\n\t\t\t\tProgress1.progress+=1\n\t\t\t}\n\t\t}\n\t\tstoreValue(\"customer_ids_batch\", arr)\n\t\tif(arr.length > 0){\n\t\t\tApi1.run()\n\t\t}\n\t\tProgress1.isVisible = false\n\t\tshowAlert(\"Customer uploaded successfully\")\n\t},\n\tmyFun2: async () => {\n\t\t//use async-await or promises\n\t}\n}",
+    "variables": [
+      {
+        "name": "myVar1",
+        "value": "[]"
+      },
+      {
+        "name": "myVar2",
+        "value": "{}"
+      }
+    ],
+    "userPermissions": []
+  },
+  "id": "Page1_JSObject1",
+  "deleted": false,
+  "gitSyncId": "63f5c3d6d7596843170702c8_63f5c452d7596843170702d2"
+}
