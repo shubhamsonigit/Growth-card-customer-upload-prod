@@ -19,7 +19,7 @@
       "timeoutInMillisecond": 10000,
       "paginationType": "NONE",
       "encodeParamsToggle": true,
-      "body": "async () => {\n  Progress1.isVisible = true;\n  var input = FilePicker1.files[0];\n  var n = input.data.length;\n  var arr = [];\n  for (var i = 0; i < n; i++) {\n    arr.push(input.data[i][\"customer_ids\"]);\n    if (i % 10000 == 9999) {\n      storeValue(\"customer_ids_batch\", arr, false);\n      Api1.run();\n      arr = [];\n      Progress1.progress += 1;\n    }\n  }\n  storeValue(\"customer_ids_batch\", arr);\n  if (arr.length > 0) {\n    Api1.run();\n  }\n  Progress1.isVisible = false;\n  showAlert(\"Customer uploaded successfully\");\n}",
+      "body": "async () => {\n  var input = FilePicker1.files[0];\n  var n = input.data.length;\n  console.log(n);\n  var arr = [];\n  for (var i = 0; i < n; i++) {\n    arr.push(input.data[i][\"customer_ids\"]);\n    if (i % 1000 == 999) {\n      console.log(arr);\n      storeValue(\"customer_ids_batch\", arr);\n      await Api1.run();\n      arr = [];\n    }\n  }\n  if (arr.length > 0) {\n    storeValue(\"customer_ids_batch\", arr);\n    await Api1.run();\n  }\n  showAlert(\"Customer uploaded successfully\");\n}",
       "selfReferencingDataPaths": [],
       "jsArguments": [],
       "isAsync": true
@@ -35,7 +35,7 @@
     "invalids": [],
     "messages": [],
     "jsonPathKeys": [
-      "async () => {\n  Progress1.isVisible = true;\n  var input = FilePicker1.files[0];\n  var n = input.data.length;\n  var arr = [];\n  for (var i = 0; i < n; i++) {\n    arr.push(input.data[i][\"customer_ids\"]);\n    if (i % 10000 == 9999) {\n      storeValue(\"customer_ids_batch\", arr, false);\n      Api1.run();\n      arr = [];\n      Progress1.progress += 1;\n    }\n  }\n  storeValue(\"customer_ids_batch\", arr);\n  if (arr.length > 0) {\n    Api1.run();\n  }\n  Progress1.isVisible = false;\n  showAlert(\"Customer uploaded successfully\");\n}"
+      "async () => {\n  var input = FilePicker1.files[0];\n  var n = input.data.length;\n  console.log(n);\n  var arr = [];\n  for (var i = 0; i < n; i++) {\n    arr.push(input.data[i][\"customer_ids\"]);\n    if (i % 1000 == 999) {\n      console.log(arr);\n      storeValue(\"customer_ids_batch\", arr);\n      await Api1.run();\n      arr = [];\n    }\n  }\n  if (arr.length > 0) {\n    storeValue(\"customer_ids_batch\", arr);\n    await Api1.run();\n  }\n  showAlert(\"Customer uploaded successfully\");\n}"
     ],
     "userSetOnLoad": false,
     "confirmBeforeExecute": false,

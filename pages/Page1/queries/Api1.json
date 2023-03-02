@@ -19,7 +19,7 @@
     },
     "pageId": "Page1",
     "actionConfiguration": {
-      "timeoutInMillisecond": 10000,
+      "timeoutInMillisecond": 1000000,
       "paginationType": "NONE",
       "path": "/growth_card/dashboard/upload_customer_to_campaign",
       "headers": [
@@ -50,7 +50,9 @@
       }
     ],
     "isValid": true,
-    "invalids": [],
+    "invalids": [
+      "'Query timeout' field must be an integer between 0 and 60000"
+    ],
     "messages": [],
     "jsonPathKeys": [
       "Input1.text",
